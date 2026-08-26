@@ -5,6 +5,9 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
+
+# Pre-generated answers (tùy chọn theo đề bài starter)
 answers_50q.json
-reports/*.json
-!reports/.gitkeep
+
+# Workspace cá nhân
+my_workspace

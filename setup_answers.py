@@ -68,7 +68,11 @@ def build_pipeline():
 
     print("\n[3/3] Loading reranker...")
     t0 = time.time()
-    reranker = CrossEncoderReranker()
+    try:
+        from src.m3_rerank import FlashrankReranker
+        reranker = FlashrankReranker()
+    except Exception:
+        reranker = CrossEncoderReranker()
     print(f"  ✓ Reranker ready ({time.time()-t0:.1f}s)")
 
     return search, reranker, RERANK_TOP_K
@@ -85,7 +89,7 @@ def run_query(q: str, search, reranker, top_k: int) -> tuple[str, list[str]]:
     if OPENAI_API_KEY and contexts:
         try:
             from openai import OpenAI
-            client = OpenAI()
+            client = OpenAI(api_key=OPENAI_API_KEY)
             ctx = "\n\n".join(contexts)
             resp = client.chat.completions.create(
                 model="gpt-4o-mini",

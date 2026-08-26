@@ -1,0 +1,17 @@
+{
+  "cohen_kappa": 1.0,
+  "bias_report": {
+    "total_judged": 10,
+    "position_bias_rate": 0.1,
+    "position_bias_count": 1,
+    "verbosity_bias": 0.333,
+    "verbosity_details": {
+      "a_wins_a_longer": 3,
+      "b_wins_b_longer": 0,
+      "total_decisive": 9
+    },
+    "interpretation": "Position bias thấp — judge ổn định."
+  },
+  "total_judged": 10,
+  "interpretation": "Substantial / Perfect agreement with human annotators."
+}
